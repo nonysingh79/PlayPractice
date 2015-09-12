@@ -1,0 +1,16 @@
+application.name = Product catalog
+product = product
+salesAmount = salesAmount
+taxCategory = taxCategory
+VAT = VAT
+vat.details =VAT :{0}
+invoice.form = Product details
+invoice.new = (new)
+invoice.new.command = New
+
+invoice.new.submit = Add
+invoice.list = List All
+invoice.new.success = Successfully added product {0}.
+
+validation.errors = Please correct the errors in the form.
+validation.ean.duplicate = A product with this EAN code already exists

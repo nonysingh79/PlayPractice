@@ -1,0 +1,14 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET         /                       controllers.Application.index
+GET         /Naveen                 controllers.MyApplication.index
+GET         /Invoices               controllers.Invoices.list
+GET         /Invoices/new           controllers.Invoices.newInvoice
+GET         /Invoices/:taxId        controllers.Invoices.showVAT(taxId: String)
+POST        /Invoices               controllers.Invoices.save
+
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file           controllers.Assets.versioned(path="/public", file: Asset)

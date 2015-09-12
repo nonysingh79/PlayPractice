@@ -1,0 +1,29 @@
+@import play.i18n._
+@(title: String)(content: Html)(implicit flash: Flash)
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>@title</title>
+        <link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.versioned("stylesheets/bootstrap.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+    </head>
+    <body>
+        <div class="container">
+            @if(flash.get("success").isDefined){
+                <div class="alert alert-success">
+                    @flash.get("success")
+                </div>
+            }
+            @if(flash.get("error").isDefined){
+                <div class="alert alert-error">
+                @flash.get("error")
+                </div>
+            }
+        @content
+            @debug()
+        </div>
+    </body>
+</html>

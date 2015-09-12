@@ -1,0 +1,25 @@
+@import play.i18n._
+@import helper._
+@import play.api.Play.current
+@import play.api.i18n.Messages.Implicits._
+@(invoice: Invoice, vat: BigDecimal)(implicit flash: Flash)
+
+@main(Messages.get("vat.details",invoice.taxId)){
+
+@form(action=routes.Invoices.list()){
+<d1 class="invoices">
+
+        <dt>@Messages.get("product"):</dt>
+        <dd>@invoice.product</dd>
+    <dt>@Messages.get("salesAmount"):</dt>
+    <dd>@invoice.salesAmount</dd>
+    <dt>@Messages.get("taxCategory"):</dt>
+    <dd>@invoice.taxCategory</dd>
+    <dt>@Messages.get("VAT"):</dt>
+    <dd>@vat</dd>
+
+
+</d1>
+    <p><input type="submit" class="btn primary" value='@Messages.get("invoice.list")'></p>
+}
+}

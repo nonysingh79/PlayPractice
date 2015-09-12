@@ -1,0 +1,10 @@
+@(message: String)(implicit flash: Flash)
+
+import play.api.Play.current
+import play.api.i18n.Messages.Implicits._
+
+@main("Welcome to Play") {
+
+    @play20.welcome(message)
+
+}

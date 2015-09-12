@@ -1,0 +1,18 @@
+@import play.i18n._
+@(invoices: List[Invoice])(implicit flash: Flash)
+
+@main(Messages.get("application.name")){
+
+<d1 class="invoices">
+    @for(invoice<-invoices) {
+        <dt>@invoice.taxId</dt>
+        <dd>@invoice.product</dd>
+        <dd>@invoice.salesAmount</dd>
+        <dd>@invoice.taxCategory</dd>
+    }
+</d1>
+    <p>
+        <a href="@controllers.routes.Invoices.newInvoice()"
+        class="btn"><i class="icon-plus"></i> @Messages.get("invoice.new.command")</a>
+    </p>
+}

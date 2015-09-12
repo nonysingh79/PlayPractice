@@ -1,0 +1,26 @@
+@import play.i18n._
+@import helper._
+@import play.api.Play.current
+@import play.api.i18n.Messages.Implicits._
+@(invoiceForm: Form[Invoice])(implicit flash: Flash)
+
+
+
+
+
+@main(Messages.get("invoice.form")){
+    <h2>@Messages.get("invoice.form")</h2>
+@form(action=routes.Invoices.save()){
+    <fieldset>
+        <legend>
+            @Messages.get("invoice.details",Messages.get("invoice.new"))
+        </legend>
+        @inputText(invoiceForm("taxId"))
+        @inputText(invoiceForm("product"))
+        @inputText(invoiceForm("salesAmount"))
+        @inputText(invoiceForm("taxCategory"))
+    </fieldset>
+    <p><input type="submit" class="btn primary" value='@Messages.get("invoice.new.submit")'></p>
+}
+
+}
