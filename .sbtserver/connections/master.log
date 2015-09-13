@@ -1,13 +1,10 @@
-New log file opened at Sat Sep 12 16:40:17 SGT 2015 by 1051@Naveens-MacBook-Pro.local
-Taking next connection to: 50127
-New client attempting to connect on port: 50128-50127
-  Address = /192.168.0.102:50127
-This client on port 50128 has uuid fcd7ac5e-126e-4f77-929f-c487e626b28c configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
-Connected Clients: play-fork-run-fcd7ac5e-126e-4f77-929f-c487e626b28c
-Taking next connection to: 50127
+New log file opened at Sun Sep 13 16:44:27 SGT 2015 by 2856@Naveens-MacBook-Pro.local
+Taking next connection to: 53814
+New client attempting to connect on port: 53815-53814
+  Address = /192.168.0.103:53814
+This client on port 53815 has uuid 6e2224aa-fa7c-4483-a48c-a1c05ae7815f configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-6e2224aa-fa7c-4483-a48c-a1c05ae7815f
+Taking next connection to: 53814
 Checking to see if clients are empty...
-No non-daemon clients connected after 3 min. Shutting down.
-Server socket thread exiting.
-0 clients open, will close them...
-All client sockets have been closed.
-Closing the 1051@Naveens-MacBook-Pro.local logs at Sat Sep 12 16:43:18 SGT 2015, goodbye.
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 53814

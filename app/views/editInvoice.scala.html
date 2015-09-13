@@ -10,7 +10,7 @@
 
 @main(Messages.get("invoice.form")){
     <h2>@Messages.get("invoice.form")</h2>
-@form(action=routes.Invoices.save()){
+@form(action=routes.Invoices.saveDB()){
     <fieldset>
         <legend>
             @Messages.get("invoice.details",Messages.get("invoice.new"))

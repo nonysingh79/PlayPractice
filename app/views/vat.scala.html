@@ -6,7 +6,7 @@
 
 @main(Messages.get("vat.details",invoice.taxId)){
 
-@form(action=routes.Invoices.list()){
+@form(action=routes.Invoices.listFromDB()){
 <d1 class="invoices">
 
         <dt>@Messages.get("product"):</dt>
