@@ -2,6 +2,7 @@ package models
 
 import org.squeryl.PrimitiveTypeMode._
 import org.squeryl.{KeyedEntity, Schema}
+import play.api.Logger
 
 /**
  * Created by naveen on 10/9/15.
@@ -29,17 +30,31 @@ object Invoice{
 
 
   def findAll=invoices.toList.sortBy(_.salesAmount)
-  def findByTaxId(taxId:String)=invoices.find(_.taxId == taxId)
+
+  def findByTaxId(taxId:String)=
+    {
+
+     val inv:Option[Invoice]=findByTaxIdDB(taxId)
+      Logger.info(inv.toString)
+      inv
+    }
+
+  def findByTaxIdDB(taxId:String)={
+    inTransaction(from(AppDB.invoiceTable)(
+    invoice => where(invoice.taxId===taxId) select(invoice)).headOption
+  )}
+
   def add(invoice: Invoice): Unit ={
     invoices=invoices+invoice
   }
 
-  def insert(invoice: Invoice): Invoice = inTransaction {
+  def insert(invoice: Invoice): Invoice = {
+    inTransaction(
 
-      AppDB.invoiceTable.insert(invoice)
+      AppDB.invoiceTable insert invoice)
+
 
   }
-
 }
 
 object AppDB extends Schema {

@@ -3,6 +3,7 @@ package controllers
 import java.sql.SQLException
 
 import models.Invoice
+import play.api.Logger
 import play.api.data._
 import play.api.data.Forms._
 import play.api.mvc.{Flash, Action, Controller}
@@ -16,7 +17,7 @@ import views.html.helper.form
 @javax.inject.Inject
 class Invoices extends Controller {
 
-// Find all invoices from hardcoded list
+  // Find all invoices from hardcoded list
   def list = Action { implicit request =>
     val invoices = Invoice.findAll
     Ok(views.html.listInvoice(invoices))
@@ -24,7 +25,7 @@ class Invoices extends Controller {
   }
 
 
-// Find all invoices from DB
+  // Find all invoices from DB
   def listFromDB = Action { implicit request =>
     val invoices = Invoice.findAllInvoicesFromDb
     Ok(views.html.listInvoice(invoices))
@@ -34,9 +35,8 @@ class Invoices extends Controller {
 
   // show VAT details for a invoice identified by unique TaxID
   def showVAT(taxId: String) = Action { implicit request =>
-
-    val invoice = Invoice.findByTaxId(taxId)
-    invoice.map { invoice =>
+    Logger.info(request.toString())
+    Invoice.findByTaxId(taxId).map { invoice =>
       Ok(views.html.vat(invoice, invoice.salesAmount * 0.2))
     }.getOrElse(NotFound)
 
